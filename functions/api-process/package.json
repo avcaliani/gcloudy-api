@@ -1,0 +1,27 @@
+{
+  "name": "api-process",
+  "version": "1.0.0",
+  "description": "Autehnticated HTTP Cloud Function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avcaliani/gcloudy-4fun.git"
+  },
+  "keywords": [
+    "cloud-function",
+    "http-function",
+    "api-key"
+  ],
+  "author": "Anthony Vilarim Caliani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avcaliani/gcloudy-4fun/issues"
+  },
+  "homepage": "https://github.com/avcaliani/gcloudy-4fun#readme",
+  "dependencies": {
+    "uuid": "^8.0.0"
+  }
+}
