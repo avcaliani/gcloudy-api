@@ -22,14 +22,14 @@ Then there is a `.env` file in project's root path, there you must set values to
 - `PROJECT_REGION`
 - `API_KEY`
 
-The `PROJECT_ID` and the `PROJECT_NUMBER` can be found on project's page at GCP. The `PROJECT_REGION` is own your own, you decide where to deploy the project services, functions and etc... Finally to create an `API_KEY` follow this [GCP Tutorial](https://developers.google.com/places/web-service/get-api-key).
+The `PROJECT_ID` and the `PROJECT_NUMBER` can be found on the project's page at GCP. The `PROJECT_REGION` is on your own, you decide where to deploy the project services, functions and etc... Finally to create an `API_KEY` follow this [GCP Tutorial](https://developers.google.com/places/web-service/get-api-key).
 
 Well buddy... Now, you are ready to go! But remember that...
 > _🧙‍♂️ "If in doubt... Always follow your nose" - Gandalf_
 
 
 ## HTTP Cloud Function
-Now you are going to deploy a cloud function and then you are going to try it using your logged account credetials.
+Now you are going to deploy a cloud function and then you are going to try it using your logged account credentials.
 ```bash
 ./functions/process-request/function.sh --deploy --try
 # If something like this appear to you...
@@ -37,14 +37,14 @@ Now you are going to deploy a cloud function and then you are going to try it us
 # Say NO!
 ```
 
-Let's supose that you want to remove this function, what should you do?
+Let's suppose that you want to remove this function, what should you do?
 ```bash 
 ./functions/process-request/function.sh --remove
 ```
 
 
 ## Endpoint Service
-Cool, now that you deployed the cloud fuction we are going to create an _"Endpoint Service"_.<br>
+Cool, now that you deployed the cloud function we are going to create an _"Endpoint Service"_.<br>
 First, things first... Let's create some variables to help you during the process, okay?
 ```bash
 # Import variables from .env file 
@@ -61,9 +61,9 @@ gcloud config set run/region "$PROJECT_REGION"
 ### Once for each different endpoint...
 > This step will happen only once for each new endpoint that you create.
 
-Deploy the endpoint service. Initally you may think that nothing has happened, but in the next steps you will see the difference.
+Deploy the endpoint service. Initially you may think that nothing has happened, but in the next steps you will see the difference.
 ```bash
-# Obs! Maybe it will appear to you... If it appear, say YES!
+# Obs! Maybe it will appear to you... If it appears, say YES!
 #   API [run.googleapis.com] not enabled on project [xxx].
 #   Would you like to enable and retry (this will take a few minutes)? (y/N)?
 gcloud run deploy "$ENDPOINT_SERVICE_NAME" \
@@ -73,7 +73,7 @@ gcloud run deploy "$ENDPOINT_SERVICE_NAME" \
     --project "$PROJECT_ID"
 ```
 
-This first step will give us an important information, the _"endpoint hostname"_.<br>
+This first step will give you one important information, the _"endpoint hostname"_.<br>
 So, let's save this information to use it after.
 ```bash
 # The command above might output some logs like this...
@@ -88,7 +88,7 @@ gcloud run services list --platform managed
 ```
 
 
-### Everytime for a new endpoint version...
+### Every time for a new endpoint version...
 > The next steps will happen everytime that you want to deploy a new version of an existing endpoint.  
 
 Now, you have to update the _[OpenAPI](https://www.openapis.org/)_ file with your project values.
@@ -166,7 +166,7 @@ curl -i -X POST \
 
 ### Clean Up
 
-Let's supose that you want to remove all created services, what should you do?
+Let's suppose that you want to remove all created services, what should you do?
 ```bash
 # Removing endpoint service...
 gcloud endpoints services delete "$endpoint_hostname" --project "$PROJECT_ID"
